@@ -1,0 +1,8 @@
+# cleaves.eu → www.cleaves.eu (Plesk's "Bevorzugte Domain" is locked on this netcup plan).
+# Let's Encrypt validation under /.well-known/ is left alone.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^cleaves\.eu$ [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^ https://www.cleaves.eu%{REQUEST_URI} [R=301,L]
+</IfModule>
